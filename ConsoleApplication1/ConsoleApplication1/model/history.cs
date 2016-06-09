@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    class history
+    public class history
 
     {
         public string _id { get; set; }

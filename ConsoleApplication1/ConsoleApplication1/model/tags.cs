@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    class tags
+    public class tags
 
     {
         public string _id { get; set; }

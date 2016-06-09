@@ -42,5 +42,12 @@ namespace ConsoleApplication1.mongo
             var rpp = col.Find<rpps>(new BsonDocument()).First<rpps>();
             return rpp;
         }
+
+        public List<tags> getTags()
+        {
+            var col = database.GetCollection<tags>("tags");
+            var allTags = col.Find<tags>(new BsonDocument()).ToList<tags>();
+            return allTags;
+        }
     }
 }

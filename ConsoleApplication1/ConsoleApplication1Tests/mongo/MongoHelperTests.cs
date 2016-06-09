@@ -13,19 +13,26 @@ namespace ConsoleApplication1.mongo.Tests
     [TestClass()]
     public class MongoHelperTests
     {
-       MongoHelper mongoHelper;
-       [TestInitialize]
-       public void setUp()
+        MongoHelper mongoHelper;
+        [TestInitialize]
+        public void setUp()
         {
             mongoHelper = new MongoHelper("162.243.36.108", "Apple");
         }
 
         [TestMethod()]
         public void getRppsTest()
-        {   
+        {
             rpps rpp = mongoHelper.getRpps();
             Assert.IsNotNull(rpp);
             Trace.WriteLine(rpp);
+        }
+
+        [TestMethod()]
+        public void getTagsTest()
+        {
+            List<tags> tags = mongoHelper.getTags();
+            Assert.IsTrue(tags.Count == 5757);
         }
     }
 }

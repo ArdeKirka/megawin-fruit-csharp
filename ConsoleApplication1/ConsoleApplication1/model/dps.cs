@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    class dps
+    public class dps
 
     {
         public string _id { get; set; }
