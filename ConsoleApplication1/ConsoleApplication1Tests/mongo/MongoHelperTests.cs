@@ -34,5 +34,19 @@ namespace ConsoleApplication1.mongo.Tests
             List<tags> tags = mongoHelper.getTags();
             Assert.IsTrue(tags.Count == 5757);
         }
+
+        [TestMethod()]
+        public void createHistoryTest()
+        {
+            history h = history.create();
+            h.dataQuality = "ok";
+            h.value = "134.3";
+            h.timestamp = DateTime.UtcNow;
+            Assert.IsTrue(h.type.Equals(MongoBase.TYPE_HISTORY));
+            Assert.AreEqual(h._id, h.idd);
+            mongoHelper.insertHistory(h);
+        }
+
+
     }
 }

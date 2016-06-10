@@ -38,16 +38,22 @@ namespace ConsoleApplication1.mongo
 
         public rpps getRpps()
         {
-            var col = database.GetCollection<rpps>("rpps");
+            var col = database.GetCollection<rpps>(MongoBase.TYPE_RPPS);
             var rpp = col.Find<rpps>(new BsonDocument()).First<rpps>();
             return rpp;
         }
 
         public List<tags> getTags()
         {
-            var col = database.GetCollection<tags>("tags");
+            var col = database.GetCollection<tags>(MongoBase.TYPE_TAGS);
             var allTags = col.Find<tags>(new BsonDocument()).ToList<tags>();
             return allTags;
+        }
+
+        public void insertHistory(history h)
+        {
+            var col = database.GetCollection<history>(MongoBase.TYPE_HISTORY);
+            col.InsertOne(h);
         }
     }
 }
