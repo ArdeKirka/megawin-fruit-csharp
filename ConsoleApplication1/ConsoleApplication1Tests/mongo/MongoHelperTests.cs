@@ -29,9 +29,9 @@ namespace ConsoleApplication1.mongo.Tests
         }
 
         [TestMethod()]
-        public void getTagsTest()
+        public void getTagsNoHistoryTest()
         {
-            List<tags> tags = mongoHelper.getTags();
+            List<tags> tags = mongoHelper.getTagsNoHistory();
             Assert.IsTrue(tags.Count == 5757);
         }
 

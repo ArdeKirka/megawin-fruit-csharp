@@ -43,10 +43,12 @@ namespace ConsoleApplication1.mongo
             return rpp;
         }
 
-        public List<tags> getTags()
+        public List<tags> getTagsNoHistory()
         {
+            //Dont return the history because this could be a massive array.
+            var projection = Builders<tags>.Projection.Exclude("history");
             var col = database.GetCollection<tags>(MongoBase.TYPE_TAGS);
-            var allTags = col.Find<tags>(new BsonDocument()).ToList<tags>();
+            var allTags = col.Find<tags>(new BsonDocument()).Project<tags>(projection).ToList<tags>();
             return allTags;
         }
 
