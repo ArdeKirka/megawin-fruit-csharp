@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    public class dps
+    public class dps : MongoBase
 
     {
-        public string _id { get; set; }
-        [BsonElement("id")]
-        public string idd { get; set; }
-        public string type { get; set; }
+        public static dps create()
+        {
+            dps dp = new dps();
+            dp.initUUID();
+            dp.type = TYPE_DPS;
+            return dp;
+        }
+        private dps() { }
         public string name { get; set; }
         public string cabinetNum { get; set; }
         public string rackNum { get; set; }

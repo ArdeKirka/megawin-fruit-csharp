@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="model\history.cs" />
     <Compile Include="model\HistoryLink.cs" />
+    <Compile Include="model\MongoBase.cs" />
     <Compile Include="model\tags.cs" />
     <Compile Include="model\DpLink.cs" />
     <Compile Include="model\circuits.cs" />

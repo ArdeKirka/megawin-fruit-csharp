@@ -11,6 +11,7 @@ namespace ConsoleApplication1.model
     {
         [BsonElement("id")]
         public string idd { get; set; }
-        public string type { get; set; }
+        public string type
+        { get { return MongoBase.TYPE_RACKS; } private set { } }
     }
 }

@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    public class tags
-
+    public class tags : MongoBase
     {
-        public string _id { get; set; }
-        [BsonElement("id")]
-        public string idd { get; set; }
-        public string type { get; set; }
+        public static tags create()
+        {
+            tags tag = new tags();
+            tag.initUUID();
+            tag.type = TYPE_TAGS;
+            return tag;
+        }
+        private tags() { }
         public string tagPrefix { get; set; }
         public string rackNum { get; set; }
         public string cabinetNum { get; set; }

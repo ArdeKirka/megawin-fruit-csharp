@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    public class history
+    public class history : MongoBase
 
     {
-        public string _id { get; set; }
-        [BsonElement("id")]
-        public string idd { get; set; }
-        public string type { get; set; }
+        public static history create()
+        {
+            history hist = new history();
+            hist.initUUID();
+            hist.type = TYPE_HISTORY;
+            return hist;
+        }
+
+        private history()
+        {
+        }
+
         public DateTime timestamp { get; set; }
         public string value { get; set; }
         public string dataQuality { get; set; }

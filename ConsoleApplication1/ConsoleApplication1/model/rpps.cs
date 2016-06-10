@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    public class rpps
+    public class rpps : MongoBase
     {
-        public string _id { get; set; }
-        [BsonElement("id")]
-        public string idd { get; set; }
-        public string type { get; set; }
+        public static rpps create()
+        {
+            rpps rpp = new rpps();
+            rpp.initUUID();
+            rpp.type = TYPE_RPPS;
+            return rpp;
+        }
+
+        public rpps() { }
         public string ipAddressPlc { get; set; }
         public string macAddressPlc { get; set; }
         public string ipAddressHost { get; set; }

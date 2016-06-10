@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1.model
 {
-    public class locals
+    public class locals : MongoBase
     {
-        public string _id { get; set; }
-        [BsonElement("id")]
-        public string idd { get; set; }
-        public string type { get; set; }
+        public static locals create()
+        {
+            locals loc = new locals();
+            loc.initUUID();
+            loc.type = TYPE_LOCALS;
+            return loc;
+        }
+
+        private locals()
+        {
+        }
+
         public TagLink[] tags { get; set; }
     }
 }
